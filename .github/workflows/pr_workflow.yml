@@ -1,0 +1,19 @@
+name: PR Workflow for "${{ github.actor }}"
+
+on:
+  pull_request:
+    branches: [ main ]
+
+env:
+  GITHUB_ACTIONS: true
+
+jobs:
+  github-task-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display GITHUB_ACTIONS env variable
+        run: echo "GITHUB_ACTIONS=${{ env.GITHUB_ACTIONS }}"
+      - name: Show branch and repository name
+        run: echo "Repository ${{ github.repository }}, Branch ${{ github.ref }}"
+      - name: Show the event that triggered the workflow
+        run: echo "Event that triggered the workflow ${{ github.event_name }}"
